@@ -19,7 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "migrate": "typeorm migration:create -n CreateUserTable"
+    "migrate": "typeorm migration:create -n CreateUserTable",
+    "migrate:all": "ts-node ./node_modules/typeorm/cli migration:run -f src/cli/loader.ts",
+    "migrate:undo": "ts-node ./node_modules/typeorm/cli migration:run -f src/cli/loader.ts"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",

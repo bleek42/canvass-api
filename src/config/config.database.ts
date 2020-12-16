@@ -1,11 +1,12 @@
-import path from 'path';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 const baseDir = path.join(__dirname, '../');
 const entitiesPath = `${baseDir}${process.env.TYPEORM_ENTITIES}`;
 const migrationPath = `${baseDir}${process.env.TYPEORM_MIGRATIONS}`;
 
 export default {
-  type: process.env.TYPEORM_CONNECTION,
+  type: process.env.TYPEORM_CONNECTION || 'postgres',
   host: process.env.TYPE,
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
